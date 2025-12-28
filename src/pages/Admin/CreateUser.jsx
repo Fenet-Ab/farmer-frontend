@@ -48,7 +48,7 @@ const CreateUser = () => {
     try {
       setSubmitting(true)
       const token = localStorage.getItem('token') || ''
-      const res = await axios.post('http://localhost:5000/api/admin/create-user', form, {
+      const res = await axios.post('https://farmer-backend-5e7s.onrender.com/api/admin/create-user', form, {
         headers: { Authorization: `Bearer ${token}` },
       })
       setMessage({ type: 'success', text: res.data?.message || 'User created successfully' })
@@ -76,8 +76,8 @@ const CreateUser = () => {
         {message.text && (
           <div
             className={`${message.type === 'success'
-                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                : 'bg-red-50 text-red-700 border-red-200'
+              ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+              : 'bg-red-50 text-red-700 border-red-200'
               } border rounded-xl px-4 py-3 mb-4`}
           >
             {message.text}

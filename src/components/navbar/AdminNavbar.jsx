@@ -86,7 +86,7 @@ const AdminNavbar = () => {
     const fetchProfilePic = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/users/profile-picture",
+          "https://farmer-backend-5e7s.onrender.com/api/users/profile-picture",
           {
             headers: { Authorization: `Bearer ${token}` },
           }

@@ -36,7 +36,7 @@ const Products = () => {
     try {
       setLoading(true);
       setError(null);
-      const res = await axios.get('http://localhost:5000/api/products');
+      const res = await axios.get('https://farmer-backend-5e7s.onrender.com/api/products');
       const list = res?.data?.product || res?.data?.products || [];
       setProducts(Array.isArray(list) ? list : []);
     } catch (err) {
@@ -70,7 +70,7 @@ const Products = () => {
       setAddingToCart(productId);
       const token = localStorage.getItem('token');
       await axios.post(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/cart/add`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/cart/add`,
         { productId, quantity: 1 },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -140,8 +140,8 @@ const Products = () => {
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-5 py-2.5 rounded-2xl text-xs font-black whitespace-nowrap transition-all uppercase tracking-wider ${selectedCategory === cat
-                      ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-200'
-                      : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-200'
+                    : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                     }`}
                 >
                   {cat}
@@ -244,8 +244,8 @@ const Products = () => {
                         onClick={() => handleAddToCart(p._id || p.id)}
                         disabled={addingToCart === (p._id || p.id) || p.stock <= 0}
                         className={`flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest transition-all ${showSuccess === (p._id || p.id)
-                            ? 'bg-emerald-500 text-white'
-                            : 'bg-slate-900 text-white hover:bg-emerald-600 shadow-xl shadow-slate-200 hover:shadow-emerald-200 disabled:bg-slate-100 disabled:text-slate-400'
+                          ? 'bg-emerald-500 text-white'
+                          : 'bg-slate-900 text-white hover:bg-emerald-600 shadow-xl shadow-slate-200 hover:shadow-emerald-200 disabled:bg-slate-100 disabled:text-slate-400'
                           }`}
                       >
                         {addingToCart === (p._id || p.id) ? (

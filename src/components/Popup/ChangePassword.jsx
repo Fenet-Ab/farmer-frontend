@@ -24,7 +24,7 @@ const ChangePassword = () => {
     try {
       setSubmitting(true);
       const res = await axios.put(
-        "http://localhost:5000/api/users/update-profile",
+        "https://farmer-backend-5e7s.onrender.com/api/users/update-profile",
         passwordData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

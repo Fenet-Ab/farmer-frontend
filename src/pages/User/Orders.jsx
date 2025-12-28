@@ -11,7 +11,7 @@ const Orders = () => {
             setLoading(true);
             const token = localStorage.getItem('token');
             const res = await axios.get(
-                `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/orders/my-orders`,
+                `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/orders/my-orders`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }

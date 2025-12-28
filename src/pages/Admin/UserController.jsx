@@ -18,7 +18,7 @@ const UserController = () => {
       setLoading(true)
       setError(null)
       const token = localStorage.getItem('token')
-      const res = await axios.get('http://localhost:5000/api/admin/users', {
+      const res = await axios.get('https://farmer-backend-5e7s.onrender.com/api/admin/users', {
         headers: { Authorization: `Bearer ${token}` },
       })
       const list = res?.data?.users || []
@@ -44,7 +44,7 @@ const UserController = () => {
     try {
       setDeletingId(toDelete._id)
       const token = localStorage.getItem('token')
-      await axios.delete(`http://localhost:5000/api/admin/users/${toDelete._id}`, {
+      await axios.delete(`https://farmer-backend-5e7s.onrender.com/api/admin/users/${toDelete._id}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       setUsers((prev) => prev.filter((u) => u._id !== toDelete._id))
@@ -73,7 +73,7 @@ const UserController = () => {
       setSaving(true)
       const token = localStorage.getItem('token')
       const payload = { name: editUser.name, email: editUser.email, role: editUser.role }
-      const res = await axios.put(`http://localhost:5000/api/admin/users/${editUser._id}`, payload, {
+      const res = await axios.put(`https://farmer-backend-5e7s.onrender.com/api/admin/users/${editUser._id}`, payload, {
         headers: { Authorization: `Bearer ${token}` },
       })
       const updated = res?.data?.user

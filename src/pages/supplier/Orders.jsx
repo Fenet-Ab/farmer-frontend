@@ -29,7 +29,7 @@ const Orders = () => {
       setError(null)
       const token = localStorage.getItem('token')
       const res = await axios.get(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/orders/supplier/my-orders`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/orders/supplier/my-orders`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -47,7 +47,7 @@ const Orders = () => {
       setUpdating(orderId)
       const token = localStorage.getItem('token')
       await axios.patch(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/orders/update-delivery/${orderId}`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/orders/update-delivery/${orderId}`,
         { isDelivered },
         {
           headers: { Authorization: `Bearer ${token}` },

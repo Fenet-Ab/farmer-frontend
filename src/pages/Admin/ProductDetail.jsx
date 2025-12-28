@@ -11,7 +11,7 @@ const ProductDetail = () => {
       try {
         setLoading(true)
         setError(null)
-        const res = await axios.get('http://localhost:5000/api/products')
+        const res = await axios.get('https://farmer-backend-5e7s.onrender.com/api/products')
         const list = res?.data?.products || []
         setProducts(Array.isArray(list) ? list : [])
       } catch (err) {
@@ -60,7 +60,7 @@ const ProductDetail = () => {
                     <div className='h-12 w-12 rounded-md overflow-hidden bg-gray-100'>
                       {/* Images are stored as relative paths like /uploads/.. */}
                       <img
-                        src={p.image?.startsWith('http') ? p.image : `http://localhost:5000${p.image}`}
+                        src={p.image?.startsWith('http') ? p.image : `https://farmer-backend-5e7s.onrender.com${p.image}`}
                         alt={p.name}
                         className='h-full w-full object-cover'
                         onError={(e) => {

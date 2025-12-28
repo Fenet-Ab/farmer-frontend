@@ -47,7 +47,7 @@ const Profile = () => {
     if (!token) return;
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users/profile", {
+        const res = await axios.get("https://farmer-backend-5e7s.onrender.com/api/users/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(res.data);
@@ -63,7 +63,7 @@ const Profile = () => {
     if (!token) return;
     const fetchProfilePic = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/users/profile-picture", {
+        const res = await axios.get("https://farmer-backend-5e7s.onrender.com/api/users/profile-picture", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (res.data.profilePic) {
@@ -93,7 +93,7 @@ const Profile = () => {
       setUploading(true);
       const method = profilePictureUrl ? 'put' : 'post';
       const res = await axios[method](
-        "http://localhost:5000/api/users/profile-picture",
+        "https://farmer-backend-5e7s.onrender.com/api/users/profile-picture",
         formData,
         {
           headers: {
@@ -127,7 +127,7 @@ const Profile = () => {
     try {
       setSubmitting(true);
       const res = await axios.put(
-        "http://localhost:5000/api/users/update-profile",
+        "https://farmer-backend-5e7s.onrender.com/api/users/update-profile",
         passwordData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

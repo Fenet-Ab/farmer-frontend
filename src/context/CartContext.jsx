@@ -25,7 +25,7 @@ export const CartProvider = ({ children }) => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/cart`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/cart`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

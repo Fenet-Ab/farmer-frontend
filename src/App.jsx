@@ -90,7 +90,7 @@ const App = () => {
           <Route path="/orders" element={<ProtectedRoute><OrdersWrapper /></ProtectedRoute>} />
           <Route path="/contact" element={<ProtectedRoute><Contact /></ProtectedRoute>} />
         </Routes>
-        {!isAdmin && !isSupplier && !isUser && !isAddProducts && <Footer />}
+        {!isAdmin && !isSupplier && !isAddProducts && <Footer />}
       </div>
     </>
   )

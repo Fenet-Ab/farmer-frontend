@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { FaUser, FaLock, FaEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 import './css/login.css';
-import Navbar from '../components/navbar/Navbar';
+
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -32,7 +32,7 @@ const Login = () => {
     try {
       if (isLogin) {
         // ---- LOGIN ----
-        const res = await axios.post("http://localhost:5000/api/auth/login", {
+        const res = await axios.post("https://farmer-backend-5e7s.onrender.com/api/auth/login", {
           email: formData.email,
           password: formData.password,
         });
@@ -62,7 +62,7 @@ const Login = () => {
         }, 1500);
       } else {
         // ---- SIGNUP ----
-        const res = await axios.post("http://localhost:5000/api/auth/register", {
+        const res = await axios.post("https://farmer-backend-5e7s.onrender.com/api/auth/register", {
           name: formData.name,
           email: formData.email,
           password: formData.password,

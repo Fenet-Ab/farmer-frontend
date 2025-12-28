@@ -19,7 +19,7 @@ const OrderTable = () => {
       setLoading(true)
       setError(null)
       const token = localStorage.getItem('token')
-      const res = await axios.get('http://localhost:5000/api/admin/orders', {
+      const res = await axios.get('https://farmer-backend-5e7s.onrender.com/api/admin/orders', {
         headers: { Authorization: `Bearer ${token}` },
       })
       const list = res?.data?.orders || []
@@ -37,7 +37,7 @@ const OrderTable = () => {
       setUpdating(true)
       const token = localStorage.getItem('token')
       await axios.put(
-        `http://localhost:5000/api/admin/orders/${orderId}/status`,
+        `https://farmer-backend-5e7s.onrender.com/api/admin/orders/${orderId}/status`,
         { status: selectedStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       )

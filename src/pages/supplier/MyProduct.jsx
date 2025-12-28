@@ -41,7 +41,7 @@ const MyProduct = () => {
       setLoading(true)
       setError(null)
       const token = localStorage.getItem('token')
-      const res = await axios.get('http://localhost:5000/api/products/supplier/my-products', {
+      const res = await axios.get('https://farmer-backend-5e7s.onrender.com/api/products/supplier/my-products', {
         headers: { Authorization: `Bearer ${token}` }
       })
       const list = res?.data?.products || []
@@ -62,7 +62,7 @@ const MyProduct = () => {
       quantity: product.quantity || '',
       category: product.category || ''
     })
-    setImagePreview(product.image?.startsWith('http') ? product.image : `http://localhost:5000${product.image}`)
+    setImagePreview(product.image?.startsWith('http') ? product.image : `https://farmer-backend-5e7s.onrender.com${product.image}`)
     setImageFile(null)
   }
 
@@ -114,7 +114,7 @@ const MyProduct = () => {
         formDataToSend.append('image', imageFile)
       }
 
-      await axios.put(`http://localhost:5000/api/products/${productId}`, formDataToSend, {
+      await axios.put(`https://farmer-backend-5e7s.onrender.com/api/products/${productId}`, formDataToSend, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
@@ -134,7 +134,7 @@ const MyProduct = () => {
       setDeletingId(productId)
       setError(null)
       const token = localStorage.getItem('token')
-      await axios.delete(`http://localhost:5000/api/products/${productId}`, {
+      await axios.delete(`https://farmer-backend-5e7s.onrender.com/api/products/${productId}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       setSuccess('Product deleted successfully!')
@@ -193,7 +193,7 @@ const MyProduct = () => {
                   <td className='px-4 py-3'>
                     <div className='h-12 w-12 rounded-md overflow-hidden bg-gray-100'>
                       <img
-                        src={p.image?.startsWith('http') ? p.image : `http://localhost:5000${p.image}`}
+                        src={p.image?.startsWith('http') ? p.image : `https://farmer-backend-5e7s.onrender.com${p.image}`}
                         alt={p.name}
                         className='h-full w-full object-cover'
                         onError={(e) => {

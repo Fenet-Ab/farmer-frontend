@@ -28,7 +28,7 @@ const Checkout = () => {
       }
 
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/cart`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/cart`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -60,7 +60,7 @@ const Checkout = () => {
       // Step 1: Create order from cart
       console.log('Creating order from cart...');
       const orderResponse = await axios.post(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/orders/create`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/orders/create`,
         { shippingAddress },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -75,7 +75,7 @@ const Checkout = () => {
       // Step 2: Initialize payment
       console.log('Initializing payment for order:', orderId);
       const paymentResponse = await axios.post(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/payments/chapa/init`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/payments/chapa/init`,
         { orderId, shippingAddress },
         { headers: { Authorization: `Bearer ${token}` } }
       );

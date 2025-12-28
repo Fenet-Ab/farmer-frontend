@@ -34,18 +34,18 @@ const User = () => {
       setError(null)
       const token = localStorage.getItem('token')
 
-      const profileRes = await axios.get('http://localhost:5000/api/users/profile', {
+      const profileRes = await axios.get('https://farmer-backend-5e7s.onrender.com/api/users/profile', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setUserInfo(profileRes.data)
 
-      const ordersRes = await axios.get('http://localhost:5000/api/orders/my-orders', {
+      const ordersRes = await axios.get('https://farmer-backend-5e7s.onrender.com/api/orders/my-orders', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setOrders(ordersRes.data?.orders || [])
 
       try {
-        const cartRes = await axios.get('http://localhost:5000/api/cart', {
+        const cartRes = await axios.get('https://farmer-backend-5e7s.onrender.com/api/cart', {
           headers: { Authorization: `Bearer ${token}` }
         })
         if (cartRes.data?.cart) setCart(cartRes.data)

@@ -43,7 +43,7 @@ const PaymentSuccess = () => {
 
       const timestamp = Date.now();
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/payments/chapa/verify/${tx_ref}?t=${timestamp}`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/payments/chapa/verify/${tx_ref}?t=${timestamp}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

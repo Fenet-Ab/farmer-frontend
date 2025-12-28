@@ -27,7 +27,7 @@ const Cart = () => {
       }
 
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/cart`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/cart`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -52,7 +52,7 @@ const Cart = () => {
       setUpdating(productId);
       const token = localStorage.getItem('token');
       await axios.put(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/cart/update`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/cart/update`,
         { productId, quantity: newQuantity },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -71,7 +71,7 @@ const Cart = () => {
       setUpdating(productId);
       const token = localStorage.getItem('token');
       await axios.delete(
-        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/cart/remove`,
+        `${import.meta.env.VITE_API_URL || 'https://farmer-backend-5e7s.onrender.com'}/api/cart/remove`,
         {
           headers: { Authorization: `Bearer ${token}` },
           data: { productId },

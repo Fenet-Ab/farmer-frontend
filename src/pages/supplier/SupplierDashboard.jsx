@@ -34,17 +34,17 @@ const SupplierDashboard = () => {
       setError(null)
       const token = localStorage.getItem('token')
 
-      const profileRes = await axios.get('http://localhost:5000/api/users/profile', {
+      const profileRes = await axios.get('https://farmer-backend-5e7s.onrender.com/api/users/profile', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setUserInfo(profileRes.data)
 
-      const productsRes = await axios.get('http://localhost:5000/api/products/supplier/my-products', {
+      const productsRes = await axios.get('https://farmer-backend-5e7s.onrender.com/api/products/supplier/my-products', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setProducts(productsRes.data?.products || [])
 
-      const ordersRes = await axios.get('http://localhost:5000/api/orders/supplier/my-orders', {
+      const ordersRes = await axios.get('https://farmer-backend-5e7s.onrender.com/api/orders/supplier/my-orders', {
         headers: { Authorization: `Bearer ${token}` }
       })
       setOrders(ordersRes.data?.orders || [])
@@ -165,7 +165,7 @@ const SupplierDashboard = () => {
                       products.slice(0, 3).map((product) => (
                         <div key={product._id} className="p-4 md:p-6 flex items-center gap-4 hover:bg-slate-50 transition-colors">
                           <img
-                            src={product.image ? `http://localhost:5000${product.image}` : 'https://via.placeholder.com/50'}
+                            src={product.image ? `https://farmer-backend-5e7s.onrender.com${product.image}` : 'https://via.placeholder.com/50'}
                             className="w-12 h-12 rounded-xl object-cover border border-slate-100"
                             alt={product.name}
                           />

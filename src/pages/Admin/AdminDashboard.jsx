@@ -30,7 +30,7 @@ const AdminDashboard = () => {
   const fetchStats = async () => {
     try {
       const token = localStorage.getItem('token')
-      const res = await axios.get('http://localhost:5000/api/admin/stats', {
+      const res = await axios.get('https://farmer-backend-5e7s.onrender.com/api/admin/stats', {
         headers: { Authorization: `Bearer ${token}` }
       })
       if (res.data.success) {
@@ -193,63 +193,7 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          {/* Quick Actions */}
-          {/* <div className="space-y-6">
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-              <h2 className="text-lg font-bold mb-4">Quick Actions</h2>
-              <div className="grid grid-cols-1 gap-3">
-                <Link
-                  to="/products"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 hover:border-emerald-300 hover:bg-emerald-50"
-                >
-                  <span className="p-2 rounded-lg bg-emerald-600 text-white">
-                    <FaPlus />
-                  </span>
-                  <div>
-                    <p className="font-medium text-gray-800">Create Product</p>
-                    <p className="text-xs text-gray-500">
-                      Add fertilizers, pesticides, or farm products
-                    </p>
-                  </div>
-                </Link>
-                <Link
-                  to="/user-controller"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 hover:border-emerald-300 hover:bg-emerald-50"
-                >
-                  <span className="p-2 rounded-lg bg-emerald-600 text-white">
-                    <FaUsers />
-                  </span>
-                  <div>
-                    <p className="font-medium text-gray-800">Manage Users</p>
-                    <p className="text-xs text-gray-500">
-                      View, verify, or disable accounts
-                    </p>
-                  </div>
-                </Link>
-                <Link
-                  to="/order-detail"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 hover:border-emerald-300 hover:bg-emerald-50"
-                >
-                  <span className="p-2 rounded-lg bg-emerald-600 text-white">
-                    <FaShoppingCart />
-                  </span>
-                  <div>
-                    <p className="font-medium text-gray-800">View Orders</p>
-                    <p className="text-xs text-gray-500">
-                      Track fulfillment and statuses
-                    </p>
-                  </div>
-                </Link>
-              </div>
-            </div>
 
-            <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
-              <h2 className="text-lg font-bold mb-2">Live Data</h2>
-              <p className="text-sm text-gray-600">
-                This dashboard now displays real-time data from your database.
-              </p>
-            </div>
-          </div> */}
         </section>
       </div>
     </div>
